@@ -6,7 +6,7 @@ Summary:        A template for getting started with COSMIC
 Group:          Desktop/COSMIC
 License:        GPL-3.0-only
 URL:            https://github.com/pop-os/cosmic-applibrary
-Source0:        https://github.com/pop-os/cosmic-settings-daemon/archive/epoch-%{version}-alpha.1/%{name}-epoch-%{version}-alpha.1.tar.gz
+Source0:        https://github.com/pop-os/cosmic-applibrary/archive/epoch-%{version}-alpha.1/%{name}-epoch-%{version}-alpha.1.tar.gz
 Source1:        vendor.tar.xz
 BuildRequires:  rust-packaging
 BuildRequires:  hicolor-icon-theme
