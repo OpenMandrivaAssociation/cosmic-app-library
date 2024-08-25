@@ -20,7 +20,7 @@ Cosmic App Library is an application launcher for the COSMIC desktop that lists
 all installed applications in a grid.
 
 %prep
-%autosetup -a1
+%autosetup -n %{name}-epoch-%{version}-alpha.1 -a1 -p1
 
 %build
 just build-release
