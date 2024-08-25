@@ -1,5 +1,5 @@
 %define         appname com.system76.CosmicAppLibrary
-Name:           cosmic-app-library
+Name:           cosmic-applibrary
 Version:        1.0.0
 Release:        0.alpha1.0
 Summary:        A template for getting started with COSMIC
