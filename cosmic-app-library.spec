@@ -35,7 +35,7 @@ just rootdir=%{buildroot} prefix=%{_prefix} install
 %files
 %license LICENSE.md
 %doc README.md
-#{_bindir}/%{name}
+%{_bindir}/cosmic-app-library
 %{_datadir}/applications/%{appname}.desktop
 %{_datadir}/icons/hicolor/scalable/apps/%{appname}.svg
 %{_datadir}/metainfo/%{appname}.metainfo.xml
