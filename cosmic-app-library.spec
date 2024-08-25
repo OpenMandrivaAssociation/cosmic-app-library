@@ -1,17 +1,17 @@
 %define         appname com.system76.CosmicAppLibrary
 Name:           cosmic-app-library
-Version:        1.0.0~alpha1
-Release:        0
+Version:        1.0.0
+Release:        0.alpha1.0
 Summary:        A template for getting started with COSMIC
+Group:          Desktop/COSMIC
 License:        GPL-3.0-only
 URL:            https://github.com/pop-os/cosmic-applibrary
-Source0:        %{name}-%{version}.tar.zst
-Source1:        vendor.tar.zst
-BuildRequires:  cargo-packaging
+Source0:        https://github.com/pop-os/cosmic-settings-daemon/archive/epoch-%{version}-alpha.1/%{name}-epoch-%{version}-alpha.1.tar.gz
+Source1:        vendor.tar.xz
+BuildRequires:  rust-packaging
 BuildRequires:  hicolor-icon-theme
 BuildRequires:  just
 BuildRequires:  pkgconfig
-BuildRequires:  update-desktop-files
 BuildRequires:  pkgconfig(wayland-client)
 BuildRequires:  pkgconfig(xkbcommon)
 
@@ -27,10 +27,6 @@ just build-release
 
 %install
 just rootdir=%{buildroot} prefix=%{_prefix} install
-%suse_update_desktop_file %{appname}
-
-%check
-%{cargo_test}
 
 %files
 %license LICENSE.md
