@@ -1,3 +1,4 @@
+%undefine _debugsource_packages
 %define         appname com.system76.CosmicAppLibrary
 Name:           cosmic-applibrary
 Version:        1.0.0
