@@ -2,7 +2,7 @@
 %define         appname com.system76.CosmicAppLibrary
 Name:           cosmic-applibrary
 Version:        1.0.0
-%define beta beta.1
+%define beta beta.1.1
 Release:        %{?beta:0.%{beta}.}1
 Summary:        A template for getting started with COSMIC
 Group:          Desktop/COSMIC
