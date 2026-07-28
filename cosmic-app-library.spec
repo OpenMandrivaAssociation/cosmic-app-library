@@ -30,6 +30,7 @@ mkdir .cargo
 cp %{SOURCE2} .cargo/config
 
 %build
+export RUSTFLAGS="-C lto=off"
 just build-release
 
 %install
