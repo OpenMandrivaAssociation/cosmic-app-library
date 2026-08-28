@@ -11,6 +11,8 @@ URL:            https://github.com/pop-os/cosmic-applibrary
 Source0:        https://github.com/pop-os/cosmic-applibrary/archive/epoch-%{version}%{?beta:-%{beta}}/cosmic-app-library-epoch-%{version}%{?beta:-%{beta}}.tar.gz
 Source1:        vendor.tar.xz
 Source2:        cargo_config
+Patch0:         fix-justfile.patch
+
 BuildRequires:  make
 BuildRequires:  rust-packaging
 BuildRequires:  hicolor-icon-theme
