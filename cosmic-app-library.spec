@@ -31,16 +31,17 @@ all installed applications in a grid.
 mkdir .cargo
 cp %{SOURCE2} .cargo/config
 
-# Fix zbus-lockstep-macros panic on files without extension
-sed -i 's/entry\.path()\.extension()\.expect("File has no extension\.") == "xml"/entry.path().extension().is_some_and(|ext| ext == "xml")/' \
-    vendor/zbus-lockstep-macros/src/lib.rs
-sed -i 's/a0e6435008ae2879870fe867fb434165a9980024d3cfd5d3b9b638f880663e97/d15d0e73902c873ee86ced1e9439337cc5db95795a709154f5785d9eaf2ea62b/' \
-vendor/zbus-lockstep-macros/.cargo-checksum.json    
-
 %build
 # as of cosmic 1.4.0, rust 1.97.1 and llvm 23.1.0-rc1.
 # Disable LTO because error rustc-LLVM ERROR: expected function definition _RNvCslvstGAdgBpu_7___rustc12___rust_alloc to have an associated value info.
 export RUSTFLAGS="-C lto=off"
+# From Fedora
+# The zbus-lockstep #[validate] macro resolves the AT-SPI XML directory to            
+# "vendor/xml" (the vendored xml crate) instead of atspi-common's own            
+# "xml" directory, which makes it panic on files without an extension.            
+# Explicitly point it at the right directory.            
+export LOCKSTEP_XML_PATH="$PWD/vendor/atspi-common/xml"
+
 just build-release
 
 %install
