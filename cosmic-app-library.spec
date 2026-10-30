@@ -31,6 +31,10 @@ all installed applications in a grid.
 mkdir .cargo
 cp %{SOURCE2} .cargo/config
 
+# Fix zbus-lockstep-macros: handle files without extensions
+sed -i 's/\.extension()\.expect("File has no extension\\.") == "xml"/.extension().is_some_and(|ext| ext == "xml")/' \
+    vendor/zbus-lockstep-macros/src/lib.rs
+
 %build
 # as of cosmic 1.4.0, rust 1.97.1 and llvm 23.1.0-rc1.
 # Disable LTO because error rustc-LLVM ERROR: expected function definition _RNvCslvstGAdgBpu_7___rustc12___rust_alloc to have an associated value info.
