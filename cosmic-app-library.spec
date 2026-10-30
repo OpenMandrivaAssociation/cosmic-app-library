@@ -34,6 +34,8 @@ cp %{SOURCE2} .cargo/config
 # Fix zbus-lockstep-macros panic on files without extension
 sed -i 's/entry\.path()\.extension()\.expect("File has no extension\.") == "xml"/entry.path().extension().is_some_and(|ext| ext == "xml")/' \
     vendor/zbus-lockstep-macros/src/lib.rs
+sed -i 's/a0e6435008ae2879870fe867fb434165a9980024d3cfd5d3b9b638f880663e97/d15d0e73902c873ee86ced1e9439337cc5db95795a709154f5785d9eaf2ea62b/' \
+vendor/zbus-lockstep-macros/.cargo-checksum.json    
 
 %build
 # as of cosmic 1.4.0, rust 1.97.1 and llvm 23.1.0-rc1.
