@@ -31,8 +31,8 @@ all installed applications in a grid.
 mkdir .cargo
 cp %{SOURCE2} .cargo/config
 
-# Fix zbus-lockstep-macros: handle files without extensions
-sed -i 's/\.extension()\.expect("File has no extension\\.") == "xml"/.extension().is_some_and(|ext| ext == "xml")/' \
+# Fix zbus-lockstep-macros panic on files without extension
+sed -i 's/entry\.path()\.extension()\.expect("File has no extension\.") == "xml"/entry.path().extension().is_some_and(|ext| ext == "xml")/' \
     vendor/zbus-lockstep-macros/src/lib.rs
 
 %build
